@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 public class BasicMonster : MonoBehaviour, IMonster
 {
-    [SerializeField] private NavMeshAgent _agent;
+    [SerializeField] public NavMeshAgent _agent;
     [SerializeField] private Vector3 _trarget;
-    [SerializeField] private GameObject player;
+    [SerializeField] public GameObject _player;
     [SerializeField] private int _hp;
     [SerializeField] private int _dealDamage;
     
@@ -14,16 +14,14 @@ public class BasicMonster : MonoBehaviour, IMonster
     {
         _agent.SetDestination(_trarget);
     }
-    void refreshTarget(Vector3 target)
+    public void playerTargetNow()
     {
-       /* if()
-        {
-            _agent.SetDestination(player.transform.position);
-        }
-         if()
-        {
-            _agent.SetDestination(_trarget);
-        } */
+            _agent.SetDestination(_player.transform.position);
+           
+    }
+    public void gatesTargetAgain()
+    {
+        _agent.SetDestination(_trarget);
     }
 
     void getDamage(int damage)
@@ -35,7 +33,7 @@ public class BasicMonster : MonoBehaviour, IMonster
     {
         if (_hp <= 0)
         {
-            WaveController.DEATHS++;
+            
             Destroy(gameObject);
 
         }

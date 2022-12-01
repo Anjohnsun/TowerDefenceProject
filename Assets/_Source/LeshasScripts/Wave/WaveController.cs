@@ -5,71 +5,44 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    [SerializeField] private Dictionary<int, string> _enemys = new Dictionary<int, string>();
-    private List<GameObject> _spawnedEnemys = new List<GameObject>();
+
+    [SerializeField] private List<WaveSO> _waves = new List<WaveSO>();
     [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _enemyShootPrefab;
+    [SerializeField] private GameObject _enemyFlyPrefab;
+    [SerializeField] private GameObject _enemyAgrrPrefab;
     [SerializeField] private GameObject _waveOption;
     [SerializeField] private Vector3 _enemySpawn;
     [SerializeField] private WaveSO FirstWaveSO;
     [SerializeField] private WaveSO SecondWaveSO;
     [SerializeField] private WaveSO ThirdWaveSO;
-    public static int DEATHS;
-    private int _waveNumber = 1;
+    
     void Start()
     {
-       // _enemys.Add(FirstWaveSO._agressiveAmount, FirstWaveSO._agressiveName);
-        _enemys.Add(FirstWaveSO._basicAmount , FirstWaveSO._basicName );
-        // _enemys.Add(FirstWaveSO._flyAmount , FirstWaveSO._flyName );
-        // _enemys.Add(FirstWaveSO._shootAmount , FirstWaveSO._shootName );
-
-        switch (_waveNumber)
-        {
-            case 1 :
-                for (int i = 0; i < _enemys.Count; i++)
-                {
-                    for (int j = 0; j < FirstWaveSO._basicAmount; j++)
-                    {
-                        Instantiate(_enemyPrefab, _enemySpawn, Quaternion.identity);
-                    }
-                    
-                }
-                
-                break;
-            case 2 :
-                for (int i = 0; i < _enemys.Count; i++)
-                {
-                    for (int j = 0; j < SecondWaveSO._basicAmount; j++)
-                    {
-                        Instantiate(_enemyPrefab, _enemySpawn, Quaternion.identity);
-                    }
-
-                }
-                
-                break;
-            case 3:
-                for (int i = 0; i < _enemys.Count; i++)
-                {
-                    for (int j = 0; j < ThirdWaveSO._basicAmount; j++)
-                    {
-                        Instantiate(_enemyPrefab, _enemySpawn, Quaternion.identity);
-                    }
-
-                }
-                break;
-        }
-
-       
+        spawnWave();
     }
-    private void Update()
+    
+    private void spawnWave()
     {
-        if(DEATHS >= FirstWaveSO._basicAmount && DEATHS < SecondWaveSO._basicAmount)
+        
+        for (int i = 0; i < _waves.Count; i++)
         {
-            _waveNumber++;
-            DEATHS = 0;
-        } else if (DEATHS >= SecondWaveSO._basicAmount && DEATHS < ThirdWaveSO._basicAmount)
-        {
-            _waveNumber++;
-            DEATHS = 0;
-        } 
+            for (int m = 0; m < _waves[i].basicAmount; m++)
+            {
+                Instantiate(_enemyPrefab, _enemySpawn, Quaternion.identity);
+            }
+            for (int j = 0; j < _waves[i].flyAmount; j++)
+            {
+                Instantiate(_enemyFlyPrefab, _enemySpawn, Quaternion.identity);
+            }
+            for (int k = 0; k < _waves[i].agressiveAmount; k++)
+            {
+                Instantiate(_enemyAgrrPrefab, _enemySpawn, Quaternion.identity);
+            }
+            for (int s = 0; s < _waves[i].shootAmount; s++)
+            {
+                Instantiate(_enemyShootPrefab, _enemySpawn, Quaternion.identity);
+            }
+        }
     }
 }

@@ -12,9 +12,15 @@ TagManager:
   - Water
   - UI
   - Enemy
+<<<<<<< HEAD
   - Floor
   - Wall
   - Ceiling
+=======
+  - Gates
+  - 
+  - 
+>>>>>>> 7c6b8455ef720b73deab2420c6561d3e91e2fc09
   - 
   - 
   - 
