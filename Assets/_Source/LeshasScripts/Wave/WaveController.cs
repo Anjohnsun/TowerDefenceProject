@@ -16,9 +16,12 @@ public class WaveController : MonoBehaviour
     [SerializeField] private WaveSO FirstWaveSO;
     [SerializeField] private WaveSO SecondWaveSO;
     [SerializeField] private WaveSO ThirdWaveSO;
+    [SerializeField] private GameObject _palyerPref;
+    
     
     void Start()
     {
+        Instantiate(_palyerPref);
         spawnWave();
     }
     

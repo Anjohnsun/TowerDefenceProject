@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FirstWaveSO
   m_EditorClassIdentifier: 
   basicAmount: 4
-  flyAmount: 2
-  shootAmount: 0
+  flyAmount: 0
+  shootAmount: 2
   agressiveAmount: 0
   enemysAmountTotal: 0
