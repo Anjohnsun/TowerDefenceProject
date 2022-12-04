@@ -63,6 +63,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d742dd5eeca641b48ac3efebbc5610ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,9 +107,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 547062069708162120}
-  - component: {fileID: 2935993766277447579}
   - component: {fileID: 1101262863554586490}
   - component: {fileID: 5020969044326953601}
+  - component: {fileID: 2552364434329923851}
   m_Layer: 0
   m_Name: Barricade
   m_TagString: Untagged
@@ -132,22 +133,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2935993766277447579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547062069708162121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639d75fef874463419ee42fca7513a23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buildSurface:
-    serializedVersion: 2
-    m_Bits: 128
-  _renderer: {fileID: 547062069328215173}
 --- !u!65 &1101262863554586490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -177,3 +162,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2552364434329923851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547062069708162121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a01bf377bbf943419c97d2376a493fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildSurface:
+    serializedVersion: 2
+    m_Bits: 64
+  _renderer: {fileID: 547062069328215173}
