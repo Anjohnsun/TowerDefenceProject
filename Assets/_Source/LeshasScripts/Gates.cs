@@ -7,7 +7,7 @@ public class Gates : IDamagable
     [SerializeField] private int _hp;
 
 
-    void deathChecker(int _hp)
+    void DeathChecker(int _hp)
     {
         if (_hp <= 0)
         {
@@ -16,8 +16,5 @@ public class Gates : IDamagable
 
         }
     }
-    void Update()
-    {
-        
-    }
+    
 }

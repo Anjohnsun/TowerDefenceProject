@@ -7,12 +7,12 @@ using UnityEngine;
 {
     
 
-    void getDamage(int damage)
+    void GetDamage(int damage)
     {
         
        
     }
-    void deathChecker()
+    void DeathChecker()
     {
 
     }
