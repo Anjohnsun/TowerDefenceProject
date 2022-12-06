@@ -34,11 +34,13 @@ public class ShooterMonster : BasicMonster
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("asdas");
         Agent.speed = 0;
         Shoot();
     }
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("asdas");
         Agent.speed = 3;
     }
 }

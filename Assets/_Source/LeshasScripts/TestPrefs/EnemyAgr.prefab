@@ -108,7 +108,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6487028707110172555}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.018289, y: 1.0007303, z: 2.7067733}
@@ -147,9 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7206688fa2b07e7469a7ba34512b34b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Agent: {fileID: 0}
-  Trarget: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
+  Agent: {fileID: 4652217086979186452}
+  Trarget: {x: -10, y: -3, z: 7}
+  player: {fileID: 267773489824323139, guid: 45f251e7e6f322948a34e8ed15d86596, type: 3}
   _hp: 0
   _dealDamage: 0
-  _attackTrigerRadius: 0
