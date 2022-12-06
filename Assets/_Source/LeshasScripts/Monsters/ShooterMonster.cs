@@ -4,45 +4,41 @@ using UnityEngine;
 
 public class ShooterMonster : BasicMonster
 {
-    [SerializeField] private float _distanceToPlayer;
-
-    [SerializeField] private float _attackTrigerRadius;
+    
     [SerializeField] private GameObject _bulletPref;
+    [SerializeField] private float _bulletSpeed = 32f;
     private float reloadTime = 0;
     void Start()
     {
-        GatesTargetAgain();
+        RefreshTarget(Trarget);
     }
 
    
     void Update()
     {
-            
-        _distanceToPlayer = Vector3.Distance(_player.transform.position, transform.position);
+
         reloadTime -= Time.deltaTime;
-        if (_distanceToPlayer <= _attackTrigerRadius)
-        {
-            if (reloadTime <= 0 )
-            {
-                _agent.speed = 0;
-                Shooting();
-                
-            }
-            
-            
-        }
-        else if (_distanceToPlayer >= _attackTrigerRadius)
-        {
-            _agent.speed = 3;
-        }
+        
     }
-    void Shooting()
+    void Shoot()
     {
+        if(reloadTime <= 0)
+        {
+
+        }
         Rigidbody rb = Instantiate(_bulletPref, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+        rb.AddForce(transform.forward * _bulletSpeed, ForceMode.Impulse);
 
         reloadTime = 3;
        
     }
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        Agent.speed = 0;
+        Shoot();
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        Agent.speed = 3;
+    }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3806109231683984465}
   - component: {fileID: 7690148040628037436}
   - component: {fileID: 3682645558964914681}
+  - component: {fileID: 2790810391342384538}
   - component: {fileID: 8859803343186404694}
   - component: {fileID: 7103919462947513719}
   m_Layer: 0
@@ -99,6 +100,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &2790810391342384538
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480958408724982188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.120208, y: 0.83106136, z: 6.3654513}
+  m_Center: {x: 1.5601039, y: 0.034775127, z: 0.45115542}
 --- !u!195 &8859803343186404694
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -133,11 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b66d1f427e40046b42aa404a0145f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agent: {fileID: 8859803343186404694}
-  _trarget: {x: -9.55, y: -2.9, z: 7.64}
-  _player: {fileID: 267773489824323139, guid: 45f251e7e6f322948a34e8ed15d86596, type: 3}
+  Agent: {fileID: 0}
+  Trarget: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
   _hp: 0
   _dealDamage: 0
-  _distanceToPlayer: 0
-  _attackTrigerRadius: 5
   _bulletPref: {fileID: 1446709937086807519, guid: 8acb22ab6eee2a44c861c446d7963f6b, type: 3}
+  _bulletSpeed: 32

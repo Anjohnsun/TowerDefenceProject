@@ -4,25 +4,28 @@ using UnityEngine;
 using UnityEngine.AI;
 public class BasicMonster : MonoBehaviour, IMonster
 {
-    [SerializeField] public NavMeshAgent _agent;
-    [SerializeField] private Vector3 _trarget;
-    [SerializeField] public GameObject _player;
+    [SerializeField] public NavMeshAgent Agent;
+    [SerializeField] public Vector3 Trarget;
+    [SerializeField] public GameObject player;
     [SerializeField] private int _hp;
     [SerializeField] private int _dealDamage;
-    
+
+    public NavMeshAgent NavMeshAgent => throw new System.NotImplementedException();
+
+    public int Health => throw new System.NotImplementedException();
+
+    public int Damage => throw new System.NotImplementedException();
+
     private void Start()
     {
-        _agent.SetDestination(_trarget);
+        Agent.SetDestination(Trarget);
     }
-    public void PlayerTargetNow()
+    public void RefreshTarget(Vector3 target)
     {
-            _agent.SetDestination(_player.transform.position);
+        Agent.SetDestination(target);
            
     }
-    public void GatesTargetAgain()
-    {
-        _agent.SetDestination(_trarget);
-    }
+   
 
     void GetDamage(int damage)
     {

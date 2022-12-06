@@ -13,7 +13,11 @@ public class Spikes : BasicTrap, IReloadableTrap, IAttackable
 
     public float ReloadTime => _reloadTime;
 
+<<<<<<< HEAD
     public int Damage => _damage;
+=======
+   
+>>>>>>> 3fc665ae6bd83e97eadbac37fa31cbe351ef006a
 
     public override void BuildTrap()
     {
