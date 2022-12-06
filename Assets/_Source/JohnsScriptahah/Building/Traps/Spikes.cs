@@ -7,10 +7,13 @@ public class Spikes : BasicTrap, IReloadableTrap, IAttackable
     [SerializeField] private float _reloadTime;
     private float _reloadProgress;
     [SerializeField] private bool _isCharged = false;
+    [SerializeField] int _damage;
     private List<BasicMonster> _monstersInArea = new List<BasicMonster>();
     private GameState _currentGameState = GameState.Gameplay;
 
     public float ReloadTime => _reloadTime;
+
+    public int Damage => _damage;
 
     public override void BuildTrap()
     {

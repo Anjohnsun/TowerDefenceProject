@@ -7,11 +7,14 @@ public class WallBlades : BasicTrap, IReloadableTrap, IAttackable
     [SerializeField] private float _reloadTime;
     private float _reloadProgress;
     private bool _isCharged = false;
+    [SerializeField] int _damage;
     private List<BasicMonster> _monstersInArea = new List<BasicMonster>();
 
     private GameState _currentGameState = GameState.Gameplay;
 
     public float ReloadTime => _reloadTime;
+
+    public int Damage => _damage;
 
     public override void BuildTrap()
     {
@@ -61,7 +64,7 @@ public class WallBlades : BasicTrap, IReloadableTrap, IAttackable
         _isCharged = false;
         foreach (BasicMonster monster in _monstersInArea)
         {
-            //affect monster
+            //affect monster with damage();
         }
         StartCoroutine(ActivateTrapCoroutine());
     }
