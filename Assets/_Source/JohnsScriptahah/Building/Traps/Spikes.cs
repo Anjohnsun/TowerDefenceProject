@@ -12,6 +12,8 @@ public class Spikes : BasicTrap, IReloadableTrap, IAttackable
 
     public float ReloadTime => _reloadTime;
 
+   
+
     public override void BuildTrap()
     {
         base.BuildTrap();

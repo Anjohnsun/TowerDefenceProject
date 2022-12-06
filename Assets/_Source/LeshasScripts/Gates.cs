@@ -6,8 +6,9 @@ public class Gates : IDamagable
 {
     [SerializeField] private int _hp;
 
+    public int Health => throw new System.NotImplementedException();
 
-    void DeathChecker(int _hp)
+    void CheakDeath(int _hp)
     {
         if (_hp <= 0)
         {
