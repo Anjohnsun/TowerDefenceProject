@@ -7,7 +7,7 @@
         
        
     }
-    void deathChecker()
+    void DeathChecker()
     {
 
     }

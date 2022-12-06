@@ -11,7 +11,7 @@ public class ShooterMonster : BasicMonster
     private float reloadTime = 0;
     void Start()
     {
-        gatesTargetAgain();
+        GatesTargetAgain();
     }
 
    
@@ -25,7 +25,7 @@ public class ShooterMonster : BasicMonster
             if (reloadTime <= 0 )
             {
                 _agent.speed = 0;
-                shooting();
+                Shooting();
                 
             }
             
@@ -36,7 +36,7 @@ public class ShooterMonster : BasicMonster
             _agent.speed = 3;
         }
     }
-    void shooting()
+    void Shooting()
     {
         Rigidbody rb = Instantiate(_bulletPref, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 32f, ForceMode.Impulse);

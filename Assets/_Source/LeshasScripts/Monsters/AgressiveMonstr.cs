@@ -19,10 +19,10 @@ public class AgressiveMonstr : BasicMonster
 
         if (_distanceToPlayer <= _attackTrigerRadius)
         {
-            playerTargetNow();
+            PlayerTargetNow();
         } else if(_distanceToPlayer >= _attackTrigerRadius)
         {
-            gatesTargetAgain();
+            GatesTargetAgain();
         }
     }
 }

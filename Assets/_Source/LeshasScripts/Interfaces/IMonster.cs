@@ -5,11 +5,11 @@ using UnityEngine.AI;
 
 interface IMonster : IDamagable, IMovable, IAttackable
 {
-    void habbit(int viewArea, float viewsDistance, NavMeshAgent agent)
+    void Habbit(int viewArea, float viewsDistance, NavMeshAgent agent)
     {
 
     }
-    void refreshTarget(Vector3 target)
+    void RefreshTarget(Vector3 target)
     {
 
     }

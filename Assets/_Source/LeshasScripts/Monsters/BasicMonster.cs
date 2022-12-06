@@ -14,22 +14,22 @@ public class BasicMonster : MonoBehaviour, IMonster
     {
         _agent.SetDestination(_trarget);
     }
-    public void playerTargetNow()
+    public void PlayerTargetNow()
     {
             _agent.SetDestination(_player.transform.position);
            
     }
-    public void gatesTargetAgain()
+    public void GatesTargetAgain()
     {
         _agent.SetDestination(_trarget);
     }
 
-    void getDamage(int damage)
+    void GetDamage(int damage)
     {
 
 
     }
-    void deathChecker()
+    void DeathChecker()
     {
         if (_hp <= 0)
         {

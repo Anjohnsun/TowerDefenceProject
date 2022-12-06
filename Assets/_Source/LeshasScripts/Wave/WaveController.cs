@@ -22,10 +22,10 @@ public class WaveController : MonoBehaviour
     void Start()
     {
         Instantiate(_palyerPref);
-        spawnWave();
+        SpawnWave();
     }
     
-    private void spawnWave()
+    private void SpawnWave()
     {
         
         for (int i = 0; i < _waves.Count; i++)
