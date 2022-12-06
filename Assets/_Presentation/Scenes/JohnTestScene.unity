@@ -157,7 +157,7 @@ MonoBehaviour:
   _camera: {fileID: 440671163}
   _maxBuildDistance: 26
   _buildTrapKey: 323
-  _trapKeys: 1a0100001b0100001c010000
+  _trapKeys: 320000003300000034000000
   _traps:
   - {fileID: 2552364434329923851, guid: 9a0c2f62aed20f0479744e4a8af7a1bf, type: 3}
   - {fileID: 3463198418007655914, guid: d0cba4573b431af49a0b1bdc4197e1d8, type: 3}
@@ -187,7 +187,7 @@ MonoBehaviour:
   _trapBuilder: {fileID: 105320212}
   _fPController: {fileID: 119685202}
   _inputManager: {fileID: 105320214}
-  _startCoinAmount: 0
+  _startCoinAmount: 600
 --- !u!114 &105320214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,13 +200,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c672d80d9a03d9d47a91e7ec06c3facc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inventoryKeys: 01010000
+  _inventoryKeys: 31000000320000003300000034000000
   OnInventorySlotClicked:
     m_PersistentCalls:
       m_Calls: []
-  OnMouseClick:
+  OnMouseClicked:
     m_PersistentCalls:
       m_Calls: []
+  OnEscapeClicked:
+    m_PersistentCalls:
+      m_Calls: []
+  _currentGameState: 0
 --- !u!4 &105320215
 Transform:
   m_ObjectHideFlags: 0
@@ -934,7 +938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911667283}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -6.61, y: 3.8221, z: 12.24}
+  m_LocalPosition: {x: -6.5, y: 3.8221, z: 12.24}
   m_LocalScale: {x: 1.9292574, y: 0.1, z: 0.8644501}
   m_ConstrainProportionsScale: 0
   m_Children: []

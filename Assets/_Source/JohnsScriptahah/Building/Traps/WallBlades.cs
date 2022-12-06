@@ -9,11 +9,12 @@ public class WallBlades : BasicTrap, IReloadableTrap, IAttackable
     private bool _isCharged = false;
     [SerializeField] int _damage;
     private List<BasicMonster> _monstersInArea = new List<BasicMonster>();
-
     private GameState _currentGameState = GameState.Gameplay;
 
     public float ReloadTime => _reloadTime;
     public int Damage => _damage;
+
+    public GameState CurrentGameState => _currentGameState;
 
     public override void BuildTrap()
     {
@@ -73,15 +74,15 @@ public class WallBlades : BasicTrap, IReloadableTrap, IAttackable
         yield return null;
     }
 
-    protected override void OnGameStateChanged(GameState newGameState)
+    public override void OnGameStateChanged(GameState newGameState)
     {
         switch (newGameState)
         {
             case GameState.Gameplay:
-                _currentGameState = GameState.Paused;
+                _currentGameState = GameState.Gameplay;
                 break;
             case GameState.Paused:
-                _currentGameState = GameState.Gameplay;
+                _currentGameState = GameState.Paused;
                 break;
         }
     }

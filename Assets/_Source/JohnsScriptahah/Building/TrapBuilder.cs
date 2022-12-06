@@ -34,19 +34,13 @@ public class TrapBuilder : MonoBehaviour
         }
     }
 
+    public void Construct(GameStateManager gSManager)
+    {
+        _gSManager = gSManager;
+    }
+
     private void Update()
     {
-        //обязательно перенсти в INPUT/Controller
-        /*if (Input.GetKeyDown(KeyCode.F1))
-            StartPlacingTrap(KeyCode.F1);
-        if (Input.GetKeyDown(KeyCode.F2))
-            StartPlacingTrap(KeyCode.F2);
-        if (Input.GetKeyDown(KeyCode.F3))
-            StartPlacingTrap(KeyCode.F3);
-        if (Input.GetKeyDown(KeyCode.F4))
-            StartPlacingTrap(KeyCode.F4);*/
-
-
         if (_flyingTrap != null)
         {
             var ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
@@ -113,7 +107,9 @@ public class TrapBuilder : MonoBehaviour
         if (_flyingTrap.CanBeGrounded == true)
         {
             _flyingTrap.BuildTrap();
+            _gSManager.OnGameStateChanged += _flyingTrap.OnGameStateChanged;
             _flyingTrap = null;
+            StartPlacingTrap(_keyInvoker);
         }
     }
 
@@ -129,7 +125,11 @@ public class TrapBuilder : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("TrapBuilder disabled");
-        Destroy(_flyingTrap);
+        Destroy(_flyingTrap.gameObject);
+    }
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+
     }
 }

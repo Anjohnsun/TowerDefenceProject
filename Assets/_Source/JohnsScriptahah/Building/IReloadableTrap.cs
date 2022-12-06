@@ -5,6 +5,6 @@ using UnityEngine;
 public interface IReloadableTrap
 {
     float ReloadTime { get; }
-
+    GameState CurrentGameState { get; }
     void ActivateTrap();
 }

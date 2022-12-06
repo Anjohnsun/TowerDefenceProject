@@ -9,6 +9,11 @@ public class GameStateManager
     public delegate void GameStateChangeHandler(GameState newGameState);
     public event GameStateChangeHandler OnGameStateChanged;
 
+    public GameStateManager(InputManager inputManager)
+    {
+        inputManager.OnEscapeClicked.AddListener(OnEscapeClicked);
+    }
+
     public void SetState(GameState newGameState)
     {
         if (newGameState == CurrentGameState)
@@ -16,5 +21,10 @@ public class GameStateManager
 
         CurrentGameState = newGameState;
         OnGameStateChanged?.Invoke(newGameState);
+    }
+
+    private void OnEscapeClicked()
+    {
+        SetState(CurrentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay);
     }
 }

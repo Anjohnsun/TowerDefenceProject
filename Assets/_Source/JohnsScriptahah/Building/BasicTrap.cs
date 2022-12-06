@@ -45,8 +45,5 @@ public abstract class BasicTrap : MonoBehaviour
         _renderer.material.color = Color.black;
     }
 
-    protected virtual void OnGameStateChanged(GameState newGameState) 
-    { 
-    
-    }
+    public abstract void OnGameStateChanged(GameState newGameState);
 }

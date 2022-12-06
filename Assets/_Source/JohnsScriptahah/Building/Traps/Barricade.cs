@@ -11,4 +11,8 @@ public class Barricade : BasicTrap
         GetComponent<Collider>().isTrigger = false;
         //rebake NavMesh
     }
+
+    public override void OnGameStateChanged(GameState newGameState)
+    {
+    }
 }

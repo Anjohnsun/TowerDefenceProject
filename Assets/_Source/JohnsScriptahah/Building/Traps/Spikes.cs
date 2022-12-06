@@ -15,6 +15,7 @@ public class Spikes : BasicTrap, IReloadableTrap, IAttackable
 
     public int Damage => _damage;
 
+    public GameState CurrentGameState => _currentGameState;
 
     public override void BuildTrap()
     {
@@ -47,6 +48,7 @@ public class Spikes : BasicTrap, IReloadableTrap, IAttackable
     }
     private void Update()
     {
+        if(_currentGameState == GameState.Gameplay)
         if (!_isCharged)
         {
             _reloadProgress += Time.deltaTime;
@@ -73,15 +75,15 @@ public class Spikes : BasicTrap, IReloadableTrap, IAttackable
         yield return null;
     }
 
-    protected override void OnGameStateChanged(GameState newGameState)
+    public override void OnGameStateChanged(GameState newGameState)
     {
         switch (newGameState)
         {
             case GameState.Gameplay:
-                _currentGameState = GameState.Paused;
+                _currentGameState = GameState.Gameplay;
                 break;
             case GameState.Paused:
-                _currentGameState = GameState.Gameplay;
+                _currentGameState = GameState.Paused;
                 break;
         }
     }

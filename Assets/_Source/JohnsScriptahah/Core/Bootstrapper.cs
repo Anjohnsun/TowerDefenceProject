@@ -15,9 +15,10 @@ public class Bootstrapper : MonoBehaviour
     
     private void Start()
     {
-        _gameStateManager = new GameStateManager();
+        _gameStateManager = new GameStateManager(_inputManager);
         _gameStateManager.SetState(GameState.Gameplay);
         _playerController = new PlayerController(_trapBuilder, _playerView, _startCoinAmount,_fPController, _gameStateManager, _inputManager);
-
+        _trapBuilder.Construct(_gameStateManager);
+        _inputManager.Construct(_gameStateManager);
     }
 }

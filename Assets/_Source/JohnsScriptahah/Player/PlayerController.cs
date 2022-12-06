@@ -10,7 +10,8 @@ public class PlayerController
     private FirstPersonController _fPController;
     private GameStateManager _gSManager;
 
-    public PlayerController(TrapBuilder trapBuilder, PlayerView playerVeiw, int startCoinAmount, 
+
+    public PlayerController(TrapBuilder trapBuilder, PlayerView playerVeiw, int startCoinAmount,
         FirstPersonController fPController, GameStateManager gSManager, InputManager inputManager)
     {
         _trapBuilder = trapBuilder;
@@ -20,6 +21,7 @@ public class PlayerController
         _gSManager = gSManager;
         _gSManager.OnGameStateChanged += OnGameStateChanged;
         inputManager.OnInventorySlotClicked.AddListener(OnInventorySlotClicked);
+        inputManager.OnMouseClicked.AddListener(OnMouseLeftClicked);
     }
 
     private void OnGameStateChanged(GameState newGameState)
@@ -37,13 +39,20 @@ public class PlayerController
 
     private void OnInventorySlotClicked(KeyCode key)
     {
-        if(key == KeyCode.Alpha1)
+        if (key == KeyCode.Alpha1)
         {
             //переключить на пушку(вероятно, включить объект пушка с компонентом пушка)
             _trapBuilder.enabled = false;
         }
-        _trapBuilder.StartPlacingTrap(key);
+        else
+        {
+            _trapBuilder.enabled = true;
+            _trapBuilder.StartPlacingTrap(key);
+        }
     }
 
-    //обработка нажатий клавиш инвентарая, Escape, мыши
+    private void OnMouseLeftClicked()
+    {
+        _trapBuilder.TryBuildTrap();
+    }
 }
