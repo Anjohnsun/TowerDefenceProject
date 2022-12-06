@@ -6,19 +6,22 @@ public class Spikes : BasicTrap, IReloadableTrap, IAttackable
 {
     [SerializeField] private float _reloadTime;
     private float _reloadProgress;
-    private bool _isCharged = false;
+    [SerializeField] private bool _isCharged = false;
     private List<BasicMonster> _monstersInArea = new List<BasicMonster>();
+    private GameState _currentGameState = GameState.Gameplay;
 
     public float ReloadTime => _reloadTime;
 
     public override void BuildTrap()
     {
         base.BuildTrap();
+        transform.position = transform.position - new Vector3(0, 0.2f, 0);
         _isCharged = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
+        base.OnTriggerEnter(other);
         if (_isGrounded)
         {
             var enemy = other.GetComponent<BasicMonster>();
@@ -27,15 +30,28 @@ public class Spikes : BasicTrap, IReloadableTrap, IAttackable
                 _monstersInArea.Add(enemy);
                 if (_isCharged)
                 {
-
+                    //affect monsters
                 }
             }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    protected override void OnTriggerExit(Collider other)
     {
+        base.OnTriggerExit(other);
         _monstersInArea.Remove(other.GetComponent<BasicMonster>());
+    }
+    private void Update()
+    {
+        if (!_isCharged)
+        {
+            _reloadProgress += Time.deltaTime;
+            if (_reloadProgress >= _reloadTime)
+            {
+                _isCharged = true;
+                _reloadProgress = 0;
+            }
+        }
     }
 
     public void ActivateTrap()
@@ -48,19 +64,21 @@ public class Spikes : BasicTrap, IReloadableTrap, IAttackable
         StartCoroutine(ActivateTrapCoroutine());
     }
 
-    public void ReloadTrap()
-    {
-        StartCoroutine(ReloadTrapCoroutine());
-    }
-
     IEnumerator ActivateTrapCoroutine()
     {
         yield return null;
     }
-    IEnumerator ReloadTrapCoroutine()
+
+    protected override void OnGameStateChanged(GameState newGameState)
     {
-        yield return new WaitForSeconds(_reloadTime);
-        _isCharged = true;
-        yield return null;
+        switch (newGameState)
+        {
+            case GameState.Gameplay:
+                _currentGameState = GameState.Paused;
+                break;
+            case GameState.Paused:
+                _currentGameState = GameState.Gameplay;
+                break;
+        }
     }
 }

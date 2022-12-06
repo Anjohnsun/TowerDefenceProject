@@ -6,6 +6,7 @@ public class Barricade : BasicTrap
 {
     public override void BuildTrap()
     {
+        base.BuildTrap();
         transform.position = transform.position - new Vector3(0, 0.2f, 0);
         GetComponent<Collider>().isTrigger = false;
         //rebake NavMesh

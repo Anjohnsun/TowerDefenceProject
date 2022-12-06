@@ -8,12 +8,11 @@ public class TrapBuilder : MonoBehaviour
     [Range(3, 50)]
     [SerializeField] private float _maxBuildDistance = 5;
 
+    [SerializeField] KeyCode _buildTrapKey;
     [Header("-------------------")]
     [Header("Prefabs to keys")]
     [SerializeField] List<KeyCode> _trapKeys;
     [SerializeField] List<BasicTrap> _traps;
-    [Header("-------------------")]
-
     [Header("-------------------")]
     [Header("LayerMasks")]
     [SerializeField] private LayerMask _floorMask;
@@ -22,12 +21,12 @@ public class TrapBuilder : MonoBehaviour
     [Header("-------------------")]
 
 
-
     private Dictionary<KeyCode, BasicTrap> _trapPrefabs = new Dictionary<KeyCode, BasicTrap>();
-
     private BasicTrap _flyingTrap;
+    private KeyCode _keyInvoker;
+    private GameStateManager _gSManager;
 
-    private void Awake()
+    private void Start()
     {
         for (int i = 0; i < _trapKeys.Count; i++)
         {
@@ -37,15 +36,16 @@ public class TrapBuilder : MonoBehaviour
 
     private void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.F1))
+        //обязательно перенсти в INPUT/Controller
+        /*if (Input.GetKeyDown(KeyCode.F1))
             StartPlacingTrap(KeyCode.F1);
         if (Input.GetKeyDown(KeyCode.F2))
             StartPlacingTrap(KeyCode.F2);
         if (Input.GetKeyDown(KeyCode.F3))
             StartPlacingTrap(KeyCode.F3);
         if (Input.GetKeyDown(KeyCode.F4))
-            StartPlacingTrap(KeyCode.F4);
+            StartPlacingTrap(KeyCode.F4);*/
+
 
         if (_flyingTrap != null)
         {
@@ -58,7 +58,7 @@ public class TrapBuilder : MonoBehaviour
                 {
                     _flyingTrap.transform.position = new Vector3(
                         Mathf.RoundToInt(hit.point.x),
-                        0.2f - 0.5f,
+                        Mathf.RoundToInt(hit.point.y) + 1.2f - 0.5f,
                         Mathf.RoundToInt(hit.point.z));
                 }
                 else if (_flyingTrap.BuildSurface == _wallMask)
@@ -99,15 +99,21 @@ public class TrapBuilder : MonoBehaviour
                 }
                 else if (_flyingTrap.BuildSurface == _ceilingMask)
                 {
-
+                    _flyingTrap.transform.position = new Vector3(
+                        Mathf.RoundToInt(hit.point.x),
+                        Mathf.RoundToInt(hit.point.y) - 0.2f - 0.5f,
+                        Mathf.RoundToInt(hit.point.z));
                 }
             }
+        }
+    }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0) && _flyingTrap.CanBeGrounded == true)
-            {
-                _flyingTrap.BuildTrap();
-                _flyingTrap = null;
-            }
+    public void TryBuildTrap()
+    {
+        if (_flyingTrap.CanBeGrounded == true)
+        {
+            _flyingTrap.BuildTrap();
+            _flyingTrap = null;
         }
     }
 
@@ -117,7 +123,13 @@ public class TrapBuilder : MonoBehaviour
         if (_flyingTrap != null)
             Destroy(_flyingTrap.gameObject);
 
+        _keyInvoker = keyInvoker;
         _flyingTrap = Instantiate(_trapPrefabs[keyInvoker]);
     }
 
+    private void OnDisable()
+    {
+        Debug.Log("TrapBuilder disabled");
+        Destroy(_flyingTrap);
+    }
 }

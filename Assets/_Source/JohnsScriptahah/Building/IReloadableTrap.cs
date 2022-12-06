@@ -7,5 +7,4 @@ public interface IReloadableTrap
     float ReloadTime { get; }
 
     void ActivateTrap();
-    void ReloadTrap();
 }

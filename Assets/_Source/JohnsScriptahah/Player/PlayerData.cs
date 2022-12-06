@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : MonoBehaviour
+public class PlayerData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private int _maxHealth;
+    private int _currentHealth;
 
-    // Update is called once per frame
-    void Update()
+    private int _coinAmount;
+
+    public PlayerData(int maxHealth, int currentHealth, int coinAmount)
     {
-        
+        _maxHealth = maxHealth;
+        _currentHealth = currentHealth;
+        _coinAmount = coinAmount;
     }
 }

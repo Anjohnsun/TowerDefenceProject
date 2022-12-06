@@ -9,6 +9,8 @@ public class WallBlades : BasicTrap, IReloadableTrap, IAttackable
     private bool _isCharged = false;
     private List<BasicMonster> _monstersInArea = new List<BasicMonster>();
 
+    private GameState _currentGameState = GameState.Gameplay;
+
     public float ReloadTime => _reloadTime;
 
     public override void BuildTrap()
@@ -17,8 +19,9 @@ public class WallBlades : BasicTrap, IReloadableTrap, IAttackable
         _isCharged = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
+        base.OnTriggerEnter(other);
         if (_isGrounded)
         {
             var enemy = other.GetComponent<BasicMonster>();
@@ -27,19 +30,21 @@ public class WallBlades : BasicTrap, IReloadableTrap, IAttackable
                 _monstersInArea.Add(enemy);
                 if (_isCharged)
                 {
-
+                    ActivateTrap();
                 }
             }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    protected override void OnTriggerExit(Collider other)
     {
+        base.OnTriggerExit(other);
         _monstersInArea.Remove(other.GetComponent<BasicMonster>());
     }
 
     private void Update()
     {
+        if(_currentGameState == GameState.Gameplay)
         if (!_isCharged)
         {
             _reloadProgress += Time.deltaTime;
@@ -61,13 +66,21 @@ public class WallBlades : BasicTrap, IReloadableTrap, IAttackable
         StartCoroutine(ActivateTrapCoroutine());
     }
 
-    public void ReloadTrap()
-    {
-        _isCharged = false;
-    }
-
     IEnumerator ActivateTrapCoroutine()
     {
         yield return null;
+    }
+
+    protected override void OnGameStateChanged(GameState newGameState)
+    {
+        switch (newGameState)
+        {
+            case GameState.Gameplay:
+                _currentGameState = GameState.Paused;
+                break;
+            case GameState.Paused:
+                _currentGameState = GameState.Gameplay;
+                break;
+        }
     }
 }

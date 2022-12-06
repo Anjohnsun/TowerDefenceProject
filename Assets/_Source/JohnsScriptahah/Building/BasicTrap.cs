@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicTrap : MonoBehaviour
+public abstract class BasicTrap : MonoBehaviour
 {
-    [SerializeField] private LayerMask _buildSurface;
-    [SerializeField] private Renderer _renderer;
+    [SerializeField] protected LayerMask _buildSurface;
+    [SerializeField] protected Renderer _renderer;
 
-    private bool _canBeGrounded = true;
+    protected bool _canBeGrounded = true;
     protected bool _isGrounded = false;
-    private int _collisionCount;
+    protected int _collisionCount;
 
     public LayerMask BuildSurface { get => _buildSurface; set => _buildSurface = value; }
     public bool CanBeGrounded => _canBeGrounded;
 
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
             if (!_isGrounded && (other.GetComponent<BasicTrap>() == null || other.GetComponent<BasicTrap>().BuildSurface == _buildSurface))
             {
@@ -25,7 +25,7 @@ public class BasicTrap : MonoBehaviour
             }
     }
 
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         if (!_isGrounded && (other.GetComponent<BasicTrap>() == null || other.GetComponent<BasicTrap>().BuildSurface == _buildSurface))
         {
@@ -43,5 +43,10 @@ public class BasicTrap : MonoBehaviour
         //анима установки
         _isGrounded = true;
         _renderer.material.color = Color.black;
+    }
+
+    protected virtual void OnGameStateChanged(GameState newGameState) 
+    { 
+    
     }
 }
