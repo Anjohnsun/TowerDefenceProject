@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class AgressiveMonstr : BasicMonster
 {
-        [SerializeField] private float _attackTrigerRadius;
-
-    void Start()
-    {
-        
-    }
-
+   
     void Update()
     {
         
@@ -20,6 +14,7 @@ public class AgressiveMonstr : BasicMonster
     private void OnTriggerEnter(Collider other)
     {
         RefreshTarget(player.transform.position);
+        
     }
     private void OnTriggerExit(Collider other)
     {

@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480958408724982188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9662967, y: -1.27, z: 3.9094558}
+  m_LocalPosition: {x: -1.1, y: -1.27, z: 4.08}
   m_LocalScale: {x: 1, y: 4.143895, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -108,11 +108,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480958408724982188}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.120208, y: 0.83106136, z: 6.3654513}
-  m_Center: {x: 1.5601039, y: 0.034775127, z: 0.45115542}
+  m_Size: {x: 9.752707, y: 0.83106136, z: 2.8633833}
+  m_Center: {x: 0.18586636, y: 0.034775127, z: 2.2021894}
 --- !u!195 &8859803343186404694
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -147,9 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b66d1f427e40046b42aa404a0145f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Agent: {fileID: 0}
-  Trarget: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
+  Agent: {fileID: 8859803343186404694}
+  Trarget: {x: -10, y: -3, z: 7}
+  player: {fileID: 267773489824323139, guid: 45f251e7e6f322948a34e8ed15d86596, type: 3}
   _hp: 0
   _dealDamage: 0
   _bulletPref: {fileID: 1446709937086807519, guid: 8acb22ab6eee2a44c861c446d7963f6b, type: 3}

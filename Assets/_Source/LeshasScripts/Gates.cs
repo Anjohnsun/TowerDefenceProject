@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Gates : IDamagable
 {
-    [SerializeField] private int _hp;
+    [SerializeField] public int GatesHp;
 
     public int Health => throw new System.NotImplementedException();
-
+    
     void CheakDeath(int _hp)
     {
         if (_hp <= 0)
@@ -17,5 +17,6 @@ public class Gates : IDamagable
 
         }
     }
+    
     
 }

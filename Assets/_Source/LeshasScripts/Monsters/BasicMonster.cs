@@ -26,6 +26,10 @@ public class BasicMonster : MonoBehaviour, IMonster
            
     }
    
+    void damageGates()
+    {
+       
+    }
 
     void GetDamage(int damage)
     {
