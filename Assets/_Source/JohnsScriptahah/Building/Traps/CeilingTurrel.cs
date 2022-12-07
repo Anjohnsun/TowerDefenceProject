@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CeilingTurrel : MonoBehaviour
+public class CeilingTurrel : BasicTrap, IReloadableTrap
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameState _currentGameState = GameState.Gameplay;
+
+    public float ReloadTime => throw new System.NotImplementedException();
+
+    public GameState CurrentGameState => throw new System.NotImplementedException();
+
+    public void ActivateTrap()
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnGameStateChanged(GameState newGameState)
     {
-        
+        switch (newGameState)
+        {
+            case GameState.Gameplay:
+                _currentGameState = GameState.Gameplay;
+                break;
+            case GameState.Paused:
+                _currentGameState = GameState.Paused;
+                break;
+        }
     }
 }

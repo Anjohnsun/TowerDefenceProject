@@ -11,23 +11,16 @@ public class WaveController : MonoBehaviour
     [SerializeField] private GameObject _enemyShootPrefab;
     [SerializeField] private GameObject _enemyFlyPrefab;
     [SerializeField] private GameObject _enemyAgrrPrefab;
-    [SerializeField] private GameObject _waveOption;
     [SerializeField] private Vector3 _enemySpawn;
-    [SerializeField] private WaveSO FirstWaveSO;
-    [SerializeField] private WaveSO SecondWaveSO;
-    [SerializeField] private WaveSO ThirdWaveSO;
-    [SerializeField] private GameObject _palyerPref;
     
     
     void Start()
     {
-        Instantiate(_palyerPref);
         SpawnWave();
     }
     
     private void SpawnWave()
     {
-        
         for (int i = 0; i < _waves.Count; i++)
         {
             for (int m = 0; m < _waves[i].basicAmount; m++)
