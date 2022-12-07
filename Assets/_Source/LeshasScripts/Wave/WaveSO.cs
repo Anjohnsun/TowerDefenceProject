@@ -19,4 +19,6 @@ public class WaveSO : ScriptableObject
     [SerializeField] public int agressiveAmount;
 
     [SerializeField] public int enemysAmountTotal;
+
+    [SerializeField] public int timeBetweenWaves;
 }

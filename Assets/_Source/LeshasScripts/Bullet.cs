@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    
+    [SerializeField] private int _dealDamage;
 
-   
-    void Update()
+    private void Start()
     {
         Destroy(gameObject, 5);
-    }
+    } 
 }

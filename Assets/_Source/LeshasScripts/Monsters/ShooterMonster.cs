@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class ShooterMonster : BasicMonster
 {
-    
     [SerializeField] private GameObject _bulletPref;
     [SerializeField] private float _bulletSpeed = 32f;
     private float reloadTime = 0;
     private bool _playerInColider = false;
     void Start()
     {
-        RefreshTarget(Trarget);
+        MakePath();
     }
 
    
