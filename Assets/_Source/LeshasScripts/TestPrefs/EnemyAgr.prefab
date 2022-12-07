@@ -148,7 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Agent: {fileID: 4652217086979186452}
-  Trarget: {x: 4, y: 0, z: 22}
+  Trarget: {x: -14, y: -3, z: 6}
   player: {fileID: 267773489824323139, guid: 45f251e7e6f322948a34e8ed15d86596, type: 3}
   _hp: 0
   _dealDamage: 0
+  _gates: {fileID: 0}

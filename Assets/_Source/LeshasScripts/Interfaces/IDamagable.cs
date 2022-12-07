@@ -2,12 +2,12 @@
 {
     public int Health { get; }
 
-    void GetDamage(int damage)
+    void GetDamage(int damage, int health)
     {
         
        
     }
-    void CheckDeath()
+    void CheckDeath(int health)
     {
 
     }

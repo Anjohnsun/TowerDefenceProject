@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cc1ce574ea83849affb8fbee670035, type: 3}
   m_Name: SecondWaveSO
   m_EditorClassIdentifier: 
-  _basicAmount: 5
-  _basicName: Ork
-  _flyAmount: 0
-  _flyName: 
-  _shootAmount: 0
-  _shootName: 
-  _agressiveAmount: 0
-  _agressiveName: 
+  basicAmount: 0
+  flyAmount: 0
+  shootAmount: 0
+  agressiveAmount: 0
+  enemysAmountTotal: 0

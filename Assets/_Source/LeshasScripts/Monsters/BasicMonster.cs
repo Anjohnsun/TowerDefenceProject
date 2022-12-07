@@ -9,6 +9,8 @@ public class BasicMonster : MonoBehaviour, IMonster
     [SerializeField] public GameObject player;
     [SerializeField] private int _hp;
     [SerializeField] private int _dealDamage;
+    [SerializeField] private GameObject _gates;
+    
 
     public NavMeshAgent NavMeshAgent => throw new System.NotImplementedException();
 
@@ -18,6 +20,7 @@ public class BasicMonster : MonoBehaviour, IMonster
 
     private void Start()
     {
+       
         Agent.SetDestination(Trarget);
     }
     public void RefreshTarget(Vector3 target)
@@ -26,19 +29,16 @@ public class BasicMonster : MonoBehaviour, IMonster
            
     }
    
-    void damageGates()
+
+    public void GetDamage(int damage, int health)
     {
-       
+
+        health -= damage;
+        CheckDeath(health);
     }
-
-    void GetDamage(int damage)
+    void CheckDeath(int health)
     {
-
-
-    }
-    void DeathChecker()
-    {
-        if (_hp <= 0)
+        if (health <= 0)
         {
             
             Destroy(gameObject);
