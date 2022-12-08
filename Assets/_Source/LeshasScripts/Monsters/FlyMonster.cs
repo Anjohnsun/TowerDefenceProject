@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyMonster : MonoBehaviour
+public class FlyMonster : BasicMonster
 {
-    // Start is called before the first frame update
+
+   
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        MakePath();
+        Agent.radius = Random.Range(1, 3);
     }
 }

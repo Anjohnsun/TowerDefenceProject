@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class AgressiveMonstr : BasicMonster
 {
-
+    [SerializeField] private int _dealDamage;
+    [SerializeField] private float _attackRange = 1;
+    private float _distanceToPlayer;
     private void Start()
     {
         MakePath();
+        Agent.radius = Random.Range(1, 3);
     }
 
     void Update()
     {
-
-        _actualTimeBetweenAttacks -= Time.deltaTime;
-
-
+       _distanceToPlayer = Vector3.Distance(Player.transform.position, transform.position); ;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -23,15 +23,17 @@ public class AgressiveMonstr : BasicMonster
         if (other.gameObject.layer == 9)
         {
             StartCoroutine(MakePlayerTarget());
+            if (_distanceToPlayer <= _attackRange)
+            {
+
+            }
         }
-       
-
-
+         
     }
     private IEnumerator MakePlayerTarget()
     {
 
-        RefreshTarget(player.transform.position);
+        RefreshTarget(Player.transform.position);
         yield return new WaitForSeconds(2);
         yield return StartCoroutine(MakePlayerTarget());
 
@@ -40,7 +42,7 @@ public class AgressiveMonstr : BasicMonster
     {
         if (other.gameObject.layer == 9)
         {
-            RefreshTarget(Trarget);
+            RefreshTarget(Target);
             StopAllCoroutines();
         }
        
