@@ -52,7 +52,7 @@ public class TrapBuilder : MonoBehaviour
                 {
                     _flyingTrap.transform.position = new Vector3(
                         Mathf.RoundToInt(hit.point.x),
-                        Mathf.RoundToInt(hit.point.y) + 1.2f - 0.5f,
+                        Mathf.RoundToInt(hit.point.y) + 0.5f,
                         Mathf.RoundToInt(hit.point.z));
                 }
                 else if (_flyingTrap.BuildSurface == _wallMask)

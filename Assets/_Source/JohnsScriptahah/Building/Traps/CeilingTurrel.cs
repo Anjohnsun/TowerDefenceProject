@@ -2,29 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CeilingTurrel : BasicTrap, IReloadableTrap
+public class CeilingTurrel : ReloadableTrap
 {
-    private GameState _currentGameState = GameState.Gameplay;
-
-    public float ReloadTime => throw new System.NotImplementedException();
-
-    public GameState CurrentGameState => throw new System.NotImplementedException();
-
-    public void ActivateTrap()
+    public override void BuildTrap()
     {
-        throw new System.NotImplementedException();
+        base.BuildTrap();
     }
 
-    public override void OnGameStateChanged(GameState newGameState)
+    protected override void ActivateTrap()
     {
-        switch (newGameState)
+        _isCharged = false;
+        foreach (BasicMonster monster in _monstersInArea)
         {
-            case GameState.Gameplay:
-                _currentGameState = GameState.Gameplay;
-                break;
-            case GameState.Paused:
-                _currentGameState = GameState.Paused;
-                break;
+            monster.GetDamage(Damage);
         }
+        StartCoroutine(ActivateTrapCoroutine());
+    }
+    protected override IEnumerator ActivateTrapCoroutine()
+    {
+        //animations
+        yield return null;
     }
 }
