@@ -80,7 +80,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _renderer: {fileID: 1214786870416223584}
+  _cost: 200
   _reloadTime: 6
+  _isCharged: 0
+  _damage: 0
 --- !u!1 &1214786870416223597
 GameObject:
   m_ObjectHideFlags: 0

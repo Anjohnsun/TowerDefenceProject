@@ -134,7 +134,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _renderer: {fileID: 5696241846532489262}
+  _cost: 500
   _reloadTime: 5
+  _damage: 0
 --- !u!65 &6320823334279680974
 BoxCollider:
   m_ObjectHideFlags: 0

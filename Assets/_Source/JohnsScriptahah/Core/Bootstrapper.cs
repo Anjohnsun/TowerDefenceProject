@@ -21,5 +21,6 @@ public class Bootstrapper : MonoBehaviour
         _trapBuilder.Construct(_gameStateManager);
         _inputManager.Construct(_gameStateManager);
         MoneyManagerSingleton.Instance.AddCoins(_startCoinAmount);
+
     }
 }

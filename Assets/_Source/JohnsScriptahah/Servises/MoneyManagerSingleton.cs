@@ -12,8 +12,9 @@ public class MoneyManagerSingleton
             return _instance;
         }
     }
-
     private int _coinCount;
+    public int CoinCount => _coinCount;
+
 
     public void AddCoins(int count)
     {
@@ -22,8 +23,11 @@ public class MoneyManagerSingleton
 
     public bool TrySpendCoins(int count)
     {
-        if (count < _coinCount)
+        if (count <= _coinCount)
+        {
             _coinCount -= count;
-        return (count < _coinCount);
+            return true;
+        }
+        return false;
     }
 }

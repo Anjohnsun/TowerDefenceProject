@@ -104,7 +104,7 @@ public class TrapBuilder : MonoBehaviour
 
     public void TryBuildTrap()
     {
-        if (_flyingTrap.CanBeGrounded == true && MoneyManagerSingleton.Instance.TrySpendCoins(_flyingTrap.Cost))
+        if (_flyingTrap.CanBeGrounded && MoneyManagerSingleton.Instance.TrySpendCoins(_flyingTrap.Cost))
         {
             _flyingTrap.BuildTrap();
             _gSManager.OnGameStateChanged += _flyingTrap.OnGameStateChanged;
@@ -126,10 +126,5 @@ public class TrapBuilder : MonoBehaviour
     private void OnDisable()
     {
         Destroy(_flyingTrap.gameObject);
-    }
-
-    private void OnGameStateChanged(GameState newGameState)
-    {
-
     }
 }
