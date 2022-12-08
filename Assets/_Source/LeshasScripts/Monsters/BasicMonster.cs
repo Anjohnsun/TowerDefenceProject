@@ -44,11 +44,11 @@ public class BasicMonster : MonoBehaviour, IMonster
            
     }
     
-    public void GetDamage(int damage, int health)
+    public void GetDamage(int damage)
     {
 
-        health -= damage;
-        CheckDeath(health);
+        _hp -= damage;
+        CheckDeath(_hp);
     }
     void CheckDeath(int health)
     {
