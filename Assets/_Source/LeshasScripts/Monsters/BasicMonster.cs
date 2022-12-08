@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
 public class BasicMonster : MonoBehaviour, IMonster
 {
     [SerializeField] public NavMeshAgent Agent;
-    [SerializeField] public Vector3 Trarget;
-    [SerializeField] public GameObject player;
+    [SerializeField] public Vector3 Target;
+    [SerializeField] public GameObject Player;
     [SerializeField] private int _hp;
-    [SerializeField] private int _dealDamage;
     [SerializeField] private GameObject _gates;
-    
+    [SerializeField] public float Speed;
+    [SerializeField] public Animator Anim; 
     [SerializeField] private int cost;
    
     
@@ -25,7 +26,7 @@ public class BasicMonster : MonoBehaviour, IMonster
     private void Start()
     {
         MakePath();
-
+        Agent.speed = Speed;
         Agent.radius = Random.Range(1, 3);
         
     }
@@ -53,7 +54,9 @@ public class BasicMonster : MonoBehaviour, IMonster
         if (health <= 0)
         {
             MoneyManagerSingleton.Instance.AddCoins(cost);
-            Destroy(gameObject);
+            Agent.speed = 0;
+            Anim.Play("Die");
+            Destroy(gameObject, 5);
 
         }
     }

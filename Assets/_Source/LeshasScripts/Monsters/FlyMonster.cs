@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlyMonster : BasicMonster
 {
+
    
     void Start()
     {

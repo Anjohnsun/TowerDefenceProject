@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.32
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.10666666
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -567,8 +567,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572329107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.14, y: -1.5384, z: 8.59}
-  m_LocalScale: {x: 1, y: 4.7290425, z: 5.5049}
+  m_LocalPosition: {x: -4.14, y: -1.5384, z: 9.149}
+  m_LocalScale: {x: 1, y: 4.7290425, z: 4.3863907}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.16
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 6ce5a9719f19e8d4a8eea23fe7b31a15, type: 2}
 --- !u!4 &818448704
@@ -732,6 +732,7 @@ GameObject:
   - component: {fileID: 826750312}
   - component: {fileID: 826750311}
   - component: {fileID: 826750315}
+  - component: {fileID: 826750316}
   m_Layer: 0
   m_Name: gates
   m_TagString: Gate
@@ -810,7 +811,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826750310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.07, y: -3.433, z: 7.71}
+  m_LocalPosition: {x: -18.5, y: -3.433, z: 8.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -829,7 +830,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0864e8e669d9340867accaeede55da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startGatePoints: 0
+  _startGatePoints: 100
+--- !u!54 &826750316
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826750310}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0
 --- !u!1 &889116635
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,7 +978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 267773489824323167, guid: 45f251e7e6f322948a34e8ed15d86596, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.12
+      value: -10.11
       objectReference: {fileID: 0}
     - target: {fileID: 267773489824323167, guid: 45f251e7e6f322948a34e8ed15d86596, type: 3}
       propertyPath: m_LocalPosition.y
@@ -969,7 +986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 267773489824323167, guid: 45f251e7e6f322948a34e8ed15d86596, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.03
+      value: 13.1
       objectReference: {fileID: 0}
     - target: {fileID: 267773489824323167, guid: 45f251e7e6f322948a34e8ed15d86596, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1407,7 +1424,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 96
+  m_Constraints: 110
   m_CollisionDetection: 0
 --- !u!1 &2007531555
 GameObject:
@@ -1443,7 +1460,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a358c2dfac6b6fb4e8742de7cab9bbfe, type: 2}
   - {fileID: 11400000, guid: 7f16032d9fb96784ebb2001e029364b2, type: 2}
   _enemyPrefab: {fileID: 9018395330419284640, guid: 8b5c14243c65120468924c7f076820a1, type: 3}
-  _enemyShootPrefab: {fileID: 480958408724982188, guid: f3ffa4fbb6050d240bacf5c6b9d86633, type: 3}
+  _enemyShootPrefab: {fileID: 7459259784047057372, guid: 3e511134807723e43b481bd61074aaa8, type: 3}
   _enemyFlyPrefab: {fileID: 7774290468412891529, guid: e80d4f7dc75bbd948b9f425dfa6e3084, type: 3}
   _enemyAgrrPrefab: {fileID: 6487028707110172555, guid: 932643665addb9244adb1e78c7571c88, type: 3}
   _firstEnemySpawn: {x: -1.71, y: -3.12, z: 1.13}
