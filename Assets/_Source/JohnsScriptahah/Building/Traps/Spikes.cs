@@ -65,13 +65,14 @@ public class Spikes : BasicTrap, IReloadableTrap, IAttackable
         _isCharged = false;
         foreach (BasicMonster monster in _monstersInArea)
         {
-            //affect monster
+            monster.GetDamage(Damage);
         }
         StartCoroutine(ActivateTrapCoroutine());
     }
 
     IEnumerator ActivateTrapCoroutine()
     {
+        //animations
         yield return null;
     }
 

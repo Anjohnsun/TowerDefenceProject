@@ -64,13 +64,14 @@ public class WallBlades : BasicTrap, IReloadableTrap, IAttackable
         _isCharged = false;
         foreach (BasicMonster monster in _monstersInArea)
         {
-            //affect monster with damage();
+            monster.GetDamage(Damage);
         }
         StartCoroutine(ActivateTrapCoroutine());
     }
 
     IEnumerator ActivateTrapCoroutine()
     {
+        //animation?
         yield return null;
     }
 
