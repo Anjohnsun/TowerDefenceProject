@@ -2,7 +2,7 @@
 {
     public int Health { get; }
 
-    void GetDamage(int damage, int health)
+    void GetDamage(int damage)
     {
         
        
