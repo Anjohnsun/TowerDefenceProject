@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class CeilingTurrel : ReloadableTrap
 {
-    public override void BuildTrap()
-    {
-        base.BuildTrap();
-    }
-
+    [SerializeField] private Vector3 _bulletStartPosition;
     protected override void ActivateTrap()
     {
         _isCharged = false;
-        foreach (BasicMonster monster in _monstersInArea)
-        {
-            monster.GetDamage(Damage);
-        }
+        
         StartCoroutine(ActivateTrapCoroutine());
     }
     protected override IEnumerator ActivateTrapCoroutine()
