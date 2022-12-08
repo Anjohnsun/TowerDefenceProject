@@ -45,7 +45,7 @@ public abstract class ReloadableTrap : BasicTrap, IAttackable
                 {
                     ActivateTrap();
                 }
-            }
+            } 
         }
     }
 

@@ -6,12 +6,12 @@ public class Spikes : ReloadableTrap
 {
     protected override void ActivateTrap()
     {
-        _isCharged = false;
+        base.ActivateTrap();
+
         foreach (BasicMonster monster in _monstersInArea)
         {
             monster.GetDamage(Damage);
         }
-        StartCoroutine(ActivateTrapCoroutine());
     }
 
     protected override IEnumerator ActivateTrapCoroutine()
