@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - NavMeshSurface
+=======
+  - Gate
+>>>>>>> 19fd646e53847889d6d2a9f5f2c49cb5fb1ff298
   layers:
   - Default
   - TransparentFX
@@ -15,9 +19,9 @@ TagManager:
   - Floor
   - Wall
   - Ceiling
-  - 
-  - 
-  - 
+  - Player
+  - Gates
+  - Enemy
   - 
   - 
   - 

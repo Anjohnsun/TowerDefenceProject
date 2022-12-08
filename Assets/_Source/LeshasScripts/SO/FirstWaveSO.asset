@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cc1ce574ea83849affb8fbee670035, type: 3}
   m_Name: FirstWaveSO
   m_EditorClassIdentifier: 
-  basicAmount: 4
+  basicAmount: 5
   flyAmount: 0
-  shootAmount: 2
-  agressiveAmount: 0
+  shootAmount: 0
+  agressiveAmount: 1
   enemysAmountTotal: 0
+  timeBetweenWaves: 5
