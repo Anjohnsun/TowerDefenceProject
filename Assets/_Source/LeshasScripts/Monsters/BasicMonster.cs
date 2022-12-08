@@ -11,6 +11,7 @@ public class BasicMonster : MonoBehaviour, IMonster
     [SerializeField] private int _dealDamage;
     [SerializeField] private GameObject _gates;
     [SerializeField] private float _timeBetweenAttacks;
+    [SerializeField] private int cost;
     public float _actualTimeBetweenAttacks;
     
 
@@ -54,7 +55,7 @@ public class BasicMonster : MonoBehaviour, IMonster
     {
         if (health <= 0)
         {
-            
+            MoneyManagerSingleton.Instance.AddCoins(cost);
             Destroy(gameObject);
 
         }
