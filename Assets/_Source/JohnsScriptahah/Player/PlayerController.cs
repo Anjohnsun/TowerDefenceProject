@@ -6,7 +6,6 @@ public class PlayerController
 {
     private TrapBuilder _trapBuilder;
     private PlayerView _playerVeiw;
-    private PlayerData _playerData;
     private FirstPersonController _fPController;
     private GameStateManager _gSManager;
 
@@ -16,7 +15,6 @@ public class PlayerController
     {
         _trapBuilder = trapBuilder;
         _playerVeiw = playerVeiw;
-        _playerData = new PlayerData(100, 100, startCoinAmount);
         _fPController = fPController;
         _gSManager = gSManager;
         _gSManager.OnGameStateChanged += OnGameStateChanged;
