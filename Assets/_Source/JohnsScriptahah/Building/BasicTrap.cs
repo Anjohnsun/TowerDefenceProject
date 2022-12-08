@@ -10,6 +10,7 @@ public abstract class BasicTrap : MonoBehaviour
     protected bool _canBeGrounded = true;
     protected bool _isGrounded = false;
     protected int _collisionCount;
+    protected int cost;
 
     public LayerMask BuildSurface { get => _buildSurface; set => _buildSurface = value; }
     public bool CanBeGrounded => _canBeGrounded;
