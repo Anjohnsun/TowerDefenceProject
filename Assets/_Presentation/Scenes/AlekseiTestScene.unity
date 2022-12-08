@@ -1461,7 +1461,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7f16032d9fb96784ebb2001e029364b2, type: 2}
   _enemyPrefab: {fileID: 9018395330419284640, guid: 8b5c14243c65120468924c7f076820a1, type: 3}
   _enemyShootPrefab: {fileID: 7459259784047057372, guid: 3e511134807723e43b481bd61074aaa8, type: 3}
-  _enemyFlyPrefab: {fileID: 7774290468412891529, guid: e80d4f7dc75bbd948b9f425dfa6e3084, type: 3}
+  _enemyFlyPrefab: {fileID: 6826731949092894465, guid: db46c87dc9312a44ea2d9e4fd685b4d3, type: 3}
   _enemyAgrrPrefab: {fileID: 6487028707110172555, guid: 932643665addb9244adb1e78c7571c88, type: 3}
   _firstEnemySpawn: {x: -1.71, y: -3.12, z: 1.13}
   _secondEnemySpawn: {x: -1.71, y: -3.12, z: 16.56}
