@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &69588339134696553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7617487663232648334}
+  m_Layer: 2
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7617487663232648334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69588339134696553}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.754, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3164252306947635260}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331177783466882485
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3164252306947635260}
   - component: {fileID: 4060657431754276732}
-  m_Layer: 0
+  - component: {fileID: 1445046136688584680}
+  m_Layer: 2
   m_Name: Turrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,6 +62,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8938273390939020090}
+  - {fileID: 7617487663232648334}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,6 +78,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14eb37f64e4b0b043b1515f821e67982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildSurface:
+    serializedVersion: 2
+    m_Bits: 256
+  _renderer: {fileID: 8938273390939020088}
+  _cost: 300
+  _reloadTime: 3
+  _bulletPrefab: {fileID: 1788115775390867182, guid: 57775ea77fda6044a83567afb9ce4677, type: 3}
+  _bulletStartPosition: {fileID: 7617487663232648334}
+  _bulletSpeed: 4
+  _zoneCollider: {fileID: 6291238099434319682}
+--- !u!54 &1445046136688584680
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331177783466882485}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8938273390422288047
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,8 +115,7 @@ GameObject:
   - component: {fileID: 8938273390422288046}
   - component: {fileID: 8938273390422288035}
   - component: {fileID: 8938273390422288032}
-  - component: {fileID: 8938273390422288033}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,20 +187,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8938273390422288033
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8938273390422288047}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &8938273390939020102
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,8 +199,8 @@ GameObject:
   - component: {fileID: 8938273390939020091}
   - component: {fileID: 8938273390939020088}
   - component: {fileID: 8938273390939020089}
-  - component: {fileID: 671351174188322588}
-  m_Layer: 0
+  - component: {fileID: 6291238099434319682}
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,19 +284,18 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &671351174188322588
-CapsuleCollider:
+  m_Size: {x: 1, y: 0.90919876, z: 1}
+  m_Center: {x: 0, y: 0.045400795, z: 0}
+--- !u!65 &6291238099434319682
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8938273390939020102}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 5.27
-  m_Height: 11.52
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.7, z: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 9, y: 8.077895, z: 9}
+  m_Center: {x: 0, y: 3.6889439, z: 0}

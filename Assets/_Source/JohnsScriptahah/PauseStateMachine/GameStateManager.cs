@@ -26,5 +26,6 @@ public class GameStateManager
     private void OnEscapeClicked()
     {
         SetState(CurrentGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay);
+        Time.timeScale = CurrentGameState == GameState.Gameplay ? 1 : 0;
     }
 }

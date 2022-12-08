@@ -7,12 +7,15 @@ public abstract class BasicTrap : MonoBehaviour
     [SerializeField] protected LayerMask _buildSurface;
     [SerializeField] protected Renderer _renderer;
 
+    [SerializeField] protected int _cost;
+
     protected bool _canBeGrounded = true;
     protected bool _isGrounded = false;
     protected int _collisionCount;
 
     public LayerMask BuildSurface { get => _buildSurface; set => _buildSurface = value; }
     public bool CanBeGrounded => _canBeGrounded;
+    public int Cost => _cost;
 
 
     protected virtual void OnTriggerEnter(Collider other)

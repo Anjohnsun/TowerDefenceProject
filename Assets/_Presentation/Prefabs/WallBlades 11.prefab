@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1541380790547444889}
   - component: {fileID: 6697900367479587041}
   - component: {fileID: 5213784343636216263}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3463198418007655914}
   - component: {fileID: 6320823334279680974}
   - component: {fileID: 1128749182418296294}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WallBlades 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,6 +134,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _renderer: {fileID: 5696241846532489262}
+  _cost: 500
   _reloadTime: 5
 --- !u!65 &6320823334279680974
 BoxCollider:
@@ -176,7 +177,7 @@ GameObject:
   - component: {fileID: 5696241846532489257}
   - component: {fileID: 5696241846532489262}
   - component: {fileID: 5696241846532489263}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WallBlades
   m_TagString: Untagged
   m_Icon: {fileID: 0}

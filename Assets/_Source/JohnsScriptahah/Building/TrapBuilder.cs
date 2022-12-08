@@ -52,7 +52,7 @@ public class TrapBuilder : MonoBehaviour
                 {
                     _flyingTrap.transform.position = new Vector3(
                         Mathf.RoundToInt(hit.point.x),
-                        Mathf.RoundToInt(hit.point.y) + 1.2f - 0.5f,
+                        Mathf.RoundToInt(hit.point.y) + 0.5f,
                         Mathf.RoundToInt(hit.point.z));
                 }
                 else if (_flyingTrap.BuildSurface == _wallMask)
@@ -104,7 +104,7 @@ public class TrapBuilder : MonoBehaviour
 
     public void TryBuildTrap()
     {
-        if (_flyingTrap.CanBeGrounded == true)
+        if (_flyingTrap.CanBeGrounded && MoneyManagerSingleton.Instance.TrySpendCoins(_flyingTrap.Cost))
         {
             _flyingTrap.BuildTrap();
             _gSManager.OnGameStateChanged += _flyingTrap.OnGameStateChanged;
@@ -126,10 +126,5 @@ public class TrapBuilder : MonoBehaviour
     private void OnDisable()
     {
         Destroy(_flyingTrap.gameObject);
-    }
-
-    private void OnGameStateChanged(GameState newGameState)
-    {
-
     }
 }
