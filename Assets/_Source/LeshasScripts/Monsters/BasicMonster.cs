@@ -10,9 +10,9 @@ public class BasicMonster : MonoBehaviour, IMonster
     [SerializeField] private int _hp;
     [SerializeField] private int _dealDamage;
     [SerializeField] private GameObject _gates;
-    [SerializeField] private float _timeBetweenAttacks;
+    
     [SerializeField] private int cost;
-    public float _actualTimeBetweenAttacks;
+   
     
 
     public NavMeshAgent NavMeshAgent => throw new System.NotImplementedException();
@@ -25,8 +25,8 @@ public class BasicMonster : MonoBehaviour, IMonster
     private void Start()
     {
         MakePath();
-        _actualTimeBetweenAttacks = _timeBetweenAttacks;
-        
+
+        Agent.radius = Random.Range(1, 3);
         
     }
     public void MakePath()
@@ -35,10 +35,7 @@ public class BasicMonster : MonoBehaviour, IMonster
         Vector3 Target = _gates.transform.position;
         RefreshTarget(Target);
     }
-    private void Update()
-    {
-        _actualTimeBetweenAttacks -= Time.deltaTime;
-    }
+   
     public void RefreshTarget(Vector3 target)
     {
         Agent.SetDestination(target);

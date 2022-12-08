@@ -11,6 +11,7 @@ public class ShooterMonster : BasicMonster
     void Start()
     {
         MakePath();
+        Agent.radius = Random.Range(1, 3);
     }
 
    

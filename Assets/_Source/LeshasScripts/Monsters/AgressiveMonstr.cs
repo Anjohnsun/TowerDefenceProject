@@ -13,9 +13,6 @@ public class AgressiveMonstr : BasicMonster
     void Update()
     {
 
-        _actualTimeBetweenAttacks -= Time.deltaTime;
-
-
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +20,7 @@ public class AgressiveMonstr : BasicMonster
         if (other.gameObject.layer == 9)
         {
             StartCoroutine(MakePlayerTarget());
+            Agent.radius = Random.Range(1, 3);
         }
        
 
