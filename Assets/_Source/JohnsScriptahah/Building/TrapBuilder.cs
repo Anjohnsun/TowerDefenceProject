@@ -52,7 +52,7 @@ public class TrapBuilder : MonoBehaviour
                 {
                     _flyingTrap.transform.position = new Vector3(
                         Mathf.RoundToInt(hit.point.x),
-                        Mathf.RoundToInt(hit.point.y) + 0.5f,
+                        hit.point.y + 0.5f,
                         Mathf.RoundToInt(hit.point.z));
                 }
                 else if (_flyingTrap.BuildSurface == _wallMask)
@@ -64,7 +64,7 @@ public class TrapBuilder : MonoBehaviour
                         _flyingTrap.transform.position = new Vector3(
                         Mathf.RoundToInt(hit.point.x),
                         Mathf.RoundToInt(hit.point.y),
-                        Mathf.RoundToInt(hit.point.z));
+                        hit.point.z + .5f);
                     }
                     else if (normal.x == 0 && normal.z == -1)
                     {
@@ -72,13 +72,13 @@ public class TrapBuilder : MonoBehaviour
                         _flyingTrap.transform.position = new Vector3(
                         Mathf.RoundToInt(hit.point.x),
                         Mathf.RoundToInt(hit.point.y),
-                        Mathf.RoundToInt(hit.point.z));
+                        hit.point.z - .5f);
                     }
                     else if (normal.x == 1 && normal.z == 0)
                     {
                         _flyingTrap.transform.localRotation = new Quaternion(0, 90, 0, 90);
                         _flyingTrap.transform.position = new Vector3(
-                        Mathf.RoundToInt(hit.point.x),
+                        hit.point.x + .5f,
                         Mathf.RoundToInt(hit.point.y),
                         Mathf.RoundToInt(hit.point.z));
                     }
@@ -86,7 +86,7 @@ public class TrapBuilder : MonoBehaviour
                     {
                         _flyingTrap.transform.localRotation = new Quaternion(0, -90, 0, 90);
                         _flyingTrap.transform.position = new Vector3(
-                        Mathf.RoundToInt(hit.point.x),
+                        hit.point.x - .5f,
                         Mathf.RoundToInt(hit.point.y),
                         Mathf.RoundToInt(hit.point.z));
                     }
