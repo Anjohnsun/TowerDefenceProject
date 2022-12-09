@@ -10,10 +10,12 @@ public class Barricade : BasicTrap
         base.BuildTrap();
         transform.position = transform.position - new Vector3(0, 0.2f, 0);
         GetComponent<Collider>().isTrigger = false;
-        //rebake NavMesh
         var navMesh = GameObject.FindGameObjectWithTag("NavMeshSurface");
         NavMeshSurface navMeshSurface = navMesh.GetComponent<NavMeshSurface>();
         navMeshSurface.BuildNavMesh();
+
+        if (navMesh == null)
+            Debug.Log("navMesh");
     }
 
     public override void OnGameStateChanged(GameState newGameState)
